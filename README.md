@@ -13,6 +13,9 @@ Planned React components (in no particular order):
 - Create, edit, delete item (by ID)
 - Footer
 
+Schemas (currently written in SQL, will migrate to Postgres/Rails during development):
+<img width="440" alt="Screen Shot 2020-04-05 at 4 17 37 PM" src="https://user-images.githubusercontent.com/27389714/78509054-41ebf980-7759-11ea-914d-63a737526cf3.png">
+
 # Post-MVP Goals:
 - Different type of user accounts with different priviliges (i.e. non-profit volunteer orgs, civic/gov, enterprise corps, free-tier community members, etc.) For example: a vetted, non-profit volunteer organization whose work primarily focuses on distributing supplies to the most vulnerable members of society will have a higher precendence for items over an enterprise or community-level user) Any "premium" membership fee for this type of org will also be waived.
 - Social distancing-friendly drop-off zones, powered by Google Maps API. It's increasingly difficult to trade goods during a time when little-to-no human contact is advised, so I'd like to come up with a way to make this easier for all parties involved.
