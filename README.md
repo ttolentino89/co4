@@ -1,4 +1,4 @@
-# Covid-Corona Community Coalition
+# Covid-Corona Community Coalition (Co4)
 
 <img width="1440" alt="Screen Shot 2020-04-05 at 5 07 10 PM" src="https://user-images.githubusercontent.com/27389714/78509971-f2f59280-775f-11ea-90a4-fc8ec7756b54.png">
 
