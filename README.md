@@ -14,6 +14,7 @@ Planned React components (in no particular order):
 - Footer
 
 Schemas (currently written in SQL, will migrate to Postgres/Rails during development):
+
 <img width="440" alt="Screen Shot 2020-04-05 at 4 17 37 PM" src="https://user-images.githubusercontent.com/27389714/78509054-41ebf980-7759-11ea-914d-63a737526cf3.png">
 
 # Post-MVP Goals:
