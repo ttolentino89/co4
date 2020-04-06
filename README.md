@@ -34,6 +34,9 @@ Wirefames:
 Layouts for desktop, tablet and mobile views can be seen in the co4_wireframes.pdf uploaded to this repo. You can also view wireframes online at this link [here.](https://github.com/ttolentino89/covid-corona-community-coalition/blob/master/co4_wireframes.pdf)
 
 # Post-MVP Goals:
+
+![CH-blog-3 10 20-2](https://user-images.githubusercontent.com/27389714/78515020-411b8d80-7782-11ea-9f2c-3cfb04807eb4.png)
+
 - Different type of user accounts with different priviliges (i.e. non-profit volunteer orgs, civic/gov, enterprise corps, free-tier community members, etc.) For example: a vetted, non-profit volunteer organization whose work primarily focuses on distributing supplies to the most vulnerable members of society will have a higher precendence for items over an enterprise or community-level user) Any "premium" membership fee for this type of org will also be waived.
 - Social distancing-friendly drop-off zones, powered by Google Maps API. It's increasingly difficult to trade goods during a time when little-to-no human contact is advised, so I'd like to come up with a way to make this easier for all parties involved.
 - Links to Helpful Resources, maybe even a blog/RSS feed that publishes articles with useful information and encouraging support during these troubled times.
