@@ -31,7 +31,7 @@ Current prelimary ERD (powered by sqlDBM):
 
 Wirefames:
 
-Layouts for desktop, tablet and mobile views can be seen in the co4_wireframes.pdf uploaded to this repo. You can also view wireframes online at this link [here.](https://drive.google.com/file/d/1C62SbuvR4z9mrVFnAzeX4WaRoPCstLIw/view?usp=sharing)
+Layouts for desktop, tablet and mobile views can be seen in the co4_wireframes.pdf uploaded to this repo. You can also view wireframes online at this link [here.](https://github.com/ttolentino89/covid-corona-community-coalition/blob/master/co4_wireframes.pdf)
 
 # Post-MVP Goals:
 - Different type of user accounts with different priviliges (i.e. non-profit volunteer orgs, civic/gov, enterprise corps, free-tier community members, etc.) For example: a vetted, non-profit volunteer organization whose work primarily focuses on distributing supplies to the most vulnerable members of society will have a higher precendence for items over an enterprise or community-level user) Any "premium" membership fee for this type of org will also be waived.
