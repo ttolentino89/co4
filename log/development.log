@@ -15,3 +15,62 @@ Migrating to CreateUsers (20200406224316)
   [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(4294550360159811360)[0m
   [1m[35m (6.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for ::1 at 2020-04-06 22:01:21 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.0ms | Allocations: 1069)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:50:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started GET "/users" for ::1 at 2020-04-06 22:01:39 -0400
+Processing by UsersController#index as */*
+  [1m[36mUser Load (5.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 7.7ms | Allocations: 1416)
+
+
+Started POST "/users" for ::1 at 2020-04-06 22:04:40 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 120)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:50:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/auth/login" for ::1 at 2020-04-06 22:05:59 -0400
+Processing by AuthenticationController#login as */*
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 150)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: auth):
+  
+app/controllers/authentication_controller.rb:24:in `login_params'
+app/controllers/authentication_controller.rb:6:in `login'
+Started POST "/users" for ::1 at 2020-04-06 22:08:35 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 6ms (ActiveRecord: 0.0ms | Allocations: 970)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:50:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
+Started POST "/users" for ::1 at 2020-04-06 22:09:00 -0400
+Processing by UsersController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 120)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/users_controller.rb:50:in `user_params'
+app/controllers/users_controller.rb:18:in `create'
