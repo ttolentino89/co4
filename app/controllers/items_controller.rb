@@ -3,9 +3,9 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = Item.all
-
-    render json: @items
+    @user = User.find(params[:user_id])
+    @items = Item.where(user_id: @user.id)
+    render json: @items, include: :user, status: :ok
   end
 
   # GET /items/1
