@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :items do
     resources :users
-    put '/categories/:category_id/items/:id', to 'items#add_category'
-    get '/categories/', to 'categories#index'
-    get '/categories/:id', to 'categories#show'
   end
+  resources :items
+  put '/categories/:category_id/items/:id', to: 'items#add_category'
+  get '/categories/', to: 'categories#index'
+  get '/categories/:id', to: 'categories#show'
 
 #auth
   post '/auth/login', to: 'authentication#login'
