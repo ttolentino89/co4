@@ -14,16 +14,16 @@
 #   user: users.first,
 # )
 
-Category.create!(name:"basic/universal")
-Category.create!(name:"advanced/special-use")
-Category.create!(name:"household/kitchen")
-Category.create!(name:"outdoor/survival")
-Category.create!(name:"medical/first aid")
-Category.create!(name:"educational")
-Category.create!(name:"entertainment")
-Category.create!(name:"food/drink")
-Category.create!(name:"protective gear")
-Category.create!(name:"tools/hardware")
-Category.create!(name:"miscellaneous")
+basic = Category.create!(name:"basic/universal")
+advanced = Category.create!(name:"advanced/special-use")
+home = Category.create!(name:"household/kitchen")
+outdoor = Category.create!(name:"outdoor/survival")
+med = Category.create!(name:"medical/first aid")
+edu = Category.create!(name:"educational")
+fun = Category.create!(name:"entertainment")
+food = Category.create!(name:"food/drink")
+wearable = Category.create!(name:"protective gear")
+tool = Category.create!(name:"tools/hardware")
+misc = Category.create!(name:"miscellaneous")
 
 p "#{Category.count} categories created!"
