@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :update, :destroy]
+  before_action :set_item, only: [:show, :update, :destroy, :add_category]
+  before_action :authorize_request, only: [:create, :update, :delete, :add_flavor]
 
   # GET /items
   def index
@@ -36,6 +37,12 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   def destroy
     @item.destroy
+  end
+
+  def add_category
+    @category = Category.find(params[:category_id])
+    @item.categories << @category
+    render json: @item, include: :categories
   end
 
   private
