@@ -318,3 +318,26 @@ Processing by CategoriesController#index as */*
 Completed 200 OK in 75ms (Views: 29.6ms | ActiveRecord: 44.9ms | Allocations: 4358)
 
 
+Started POST "/items" for ::1 at 2020-04-07 21:42:51 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ItemsController#create as */*
+  Parameters: {"item"=>{"name"=>"Toilet Paper", "description"=>"Basic American household staple.", "img_link"=>"https://images.pexels.com/photos/3962433/pexels-photo-3962433.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "quantity"=>8, "user_id"=>1}}
+[31mUnpermitted parameter: :user_id[0m
+Completed 422 Unprocessable Entity in 242ms (Views: 0.5ms | ActiveRecord: 109.8ms | Allocations: 10587)
+
+
+Started GET "/users" for ::1 at 2020-04-07 21:43:22 -0400
+Processing by UsersController#index as */*
+  Parameters: {"item"=>{"name"=>"Toilet Paper", "description"=>"Basic American household staple.", "img_link"=>"https://images.pexels.com/photos/3962433/pexels-photo-3962433.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "quantity"=>8, "user_id"=>1}, "user"=>{}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 4.2ms | Allocations: 158)
+
+
+Started GET "/categories" for ::1 at 2020-04-07 21:43:47 -0400
+Processing by CategoriesController#index as */*
+  Parameters: {"item"=>{"name"=>"Toilet Paper", "description"=>"Basic American household staple.", "img_link"=>"https://images.pexels.com/photos/3962433/pexels-photo-3962433.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260", "quantity"=>8, "user_id"=>1}, "category"=>{}}
+  [1m[36mCategory Load (3.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/controllers/categories_controller.rb:8:in `index'
+Completed 200 OK in 79ms (Views: 20.9ms | ActiveRecord: 60.0ms | Allocations: 4122)
+
+
