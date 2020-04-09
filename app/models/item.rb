@@ -1,4 +1,4 @@
 class Item < ApplicationRecord
-  belongs_to :user
-  has_and_belongs_to_many :items
+  belongs_to :user, required: false
+  has_and_belongs_to_many :categories
 end

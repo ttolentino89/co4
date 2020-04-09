@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 function EditItem(props) {
   return (
-    <div>
+    <div className= "edit-form">
       <h3>Create a new item</h3>
       <form onSubmit={props.handleSubmit}>
         <p>Image Link:</p>
@@ -33,7 +33,7 @@ function EditItem(props) {
           name="qty"
           value={props.itemForm.description}
           onChange={props.handleFormChange} />
-          
+
         <button>Submit</button>
       </form>
     </div>
