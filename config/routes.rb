@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :items do
-    resources :users
+
+  # resources :categories
+
+  resources :users do
+    resources :items do
+      resources :categories
+    end
   end
+
   resources :items
   put '/categories/:category_id/items/:id', to: 'items#add_category'
   get '/categories/', to: 'categories#index'

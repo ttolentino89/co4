@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text :description
       t.string :img_link
       t.integer :quantity
-      t.references :user, null: false, foreign_key: true
+      # t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

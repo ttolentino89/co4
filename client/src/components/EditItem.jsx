@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 function EditItem(props) {
   return (
     <div className= "edit-form">
-      <h3>Create a new item</h3>
+      <h3>Edit item</h3>
       <form onSubmit={props.handleSubmit}>
         <p>Image Link:</p>
         <input
