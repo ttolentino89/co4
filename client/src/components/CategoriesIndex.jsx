@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
 
-export default function CategoriesIndex(props) {
-  return (
-    <div>
-    <h3>Categories List:</h3>
-    {props.categories.map((category) => (
-      <p>{category.name}</p>
+// Simple functional component to show categories
+const CategoriesIndex = (props) => {
+return (
+  <div>
+    {props.categories.map(category => (
+      <div key={category.id}>
+        <p>{category.name}</p>
+      </div>
     ))}
   </div>
-  )
+)
 }
+
+export default CategoriesIndex;

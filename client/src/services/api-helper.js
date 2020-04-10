@@ -33,7 +33,7 @@ export const verifyUser = async () => {
 }
 
 export const removeToken = () => {
-  api.defauls.headers.common.authorization = null;
+  api.defaults.headers.common.authorization = null;
 }
 
 //=====Items=====
