@@ -138,15 +138,11 @@ class App extends Component {
   // ============= Auth =================
   // ====================================
 
-  // Function to login a user
-  // we set the user data in state.
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.authFormData);
     this.setState({ currentUser })
   }
 
-  // Function to register a user
-  // we set the user data in state.
   handleRegister = async (e) => {
     e.preventDefault();
     const currentUser = await registerUser(this.state.authFormData);
