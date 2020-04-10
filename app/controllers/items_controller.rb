@@ -4,14 +4,16 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @user = User.find(params[:user_id])
-    @items = Item.where(user_id: @user.id)
-    render json: @items, include: :user, status: :ok
+    # @user = User.find(params[:user_id])
+    # @items = Item.where(user_id: @user.id)
+    # render json: @items, include: :user, status: :ok
+    @items = Item.all
+    render json: @items
   end
 
   # GET /items/1
   def show
-    render json: @item
+    render json: @item, include :items
   end
 
   # POST /items
