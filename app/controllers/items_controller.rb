@@ -1,19 +1,20 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :update, :destroy, :add_category]
-  before_action :authorize_request, only: [:create, :update, :delete, :add_category]
+  # before_action :authorize_request, only: [:create, :update, :delete, :add_category]
 
   # GET /items
   def index
     # @user = User.find(params[:user_id])
     # @items = Item.where(user_id: @user.id)
     # render json: @items, include: :user, status: :ok
-    @items = Item.all
+    @items = Item.order(:id)
     render json: @items
   end
 
   # GET /items/1
   def show
-    render json: @item, include :items
+    # render json: @item, include :items
+    render json: @item
   end
 
   # POST /items
@@ -51,6 +52,8 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      render json: { message: 'Sorry! Item not found.' }, status: 404
     end
 
     # Only allow a trusted parameter "white list" through.

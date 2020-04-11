@@ -1,175 +1,150 @@
 import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
+
+import ItemsView from './components/ItemsView';
+import ItemPage from './components/ItemPage';
+import CreateItem from './components/CreateItem'
 import Login from './components/Login'
 import Register from './components/Register'
-import ItemsIndex from './components/ItemsIndex'
-import Item from './components/Item'
-import CategoriesIndex from './components/CategoriesIndex'
-//backend API calls from api-helper.js
+
 import {
-  loginUser,
-  registerUser,
-  readAllItems,
-  readAllCategories,
-  readItemByID,
   createItem,
+  readAllItems,
   updateItem,
   destroyItem,
-  addCategory,
-  removeToken,
-  verifyUser
-} from './services/api-helper';
+  loginUser,
+  registerUser,
+  verifyUser,
+  removeToken
+} from './services/api-helper'
+
+import './App.css';
+import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       currentUser: null,
       categories: [],
       items: [],
-      item: null,
-      formData: {
-        name: "",
-        description: "",
-        img_link: "",
-        qty: ""
+      itemForm: {
+        name: '',
+        description: '',
+        img_link: '',
+        quantity: ''
       },
-      selectedCategory: '', // Form data for adding a flavor to a food
       authFormData: {
+        username: "",
         email: "",
         password: ""
       }
+    };
+  }
+
+  async componentDidMount() {
+    const currentUser = await verifyUser();
+    if (currentUser) {
+      this.setState({ currentUser })
+      this.getItems();
     }
-  }
-
-  // onClick function to redirect to the login form
-  handleLoginButton = () => {
-    this.props.history.push("/login")
-  }
-
-  // On page load, we grab all the foods and flavors
-  // If so, we hit our verify route to get the user data.
-  componentDidMount = () => {
-    this.getItems()
-    this.getCategories();
-    this.handleVerify();
   }
 
   getItems = async () => {
     const items = await readAllItems();
-    this.setState({ items });
+    this.setState({
+      items
+    })
   }
 
-  getItemByID = async (id) => {
-    const item = await readItemByID(id);
-    this.setState({ item });
-  }
-
-  addItem = async () => {
-    const newItem = await createItem(this.state.formData)
+  newItem = async (e) => {
+    e.preventDefault();
+    const item = await createItem(this.state.itemForm);
     this.setState(prevState => ({
-      item: [...prevState.item, newItem],
-      formData: {
-        name: "",
-        description: "",
-        img_link: "",
-        qty: ""
+      items: [...prevState.items, item],
+      itemForm: {
+        name: '',
+        description: '',
+        img_link: '',
+        quantity: ''
       }
     }))
   }
 
-  updateItem = async (item) => {
-    const updatedItem = await updateItem(this.state.formData, item.id);
+  editItem = async (item) => {
+    const { itemForm } = this.state
+    const updatedItem = await updateItem(itemForm.id, itemForm);
+    this.setState(prevState => (
+      {
+        items: prevState.items.map(item => {
+          return item.id === itemForm.id ? updatedItem : item
+        }),
+      }
+    ))
+  }
+
+  deleteItem = async (id) => {
+    await destroyItem(id);
     this.setState(prevState => ({
-      item: prevState.item.map(singleItem => {
-        return singleItem.id === item.id ? updatedItem : singleItem
-      })
+      items: prevState.items.filter(item => item.id !== id)
     }))
   }
 
-  deleteItem = async (item) => {
-    await destroyItem(item.id);
-    this.setState(prevState => ({
-      item: prevState.item.filter(singleItem => singleItem.id !== item.id)
-    }))
-  }
-
-  handleChange = (e) => {
+  handleFormChange = (e) => {
     const { name, value } = e.target;
-    this.setState({ formData: { [name]: value } });
+    this.setState(prevState => ({
+      itemForm: {
+        ...prevState.itemForm,
+        [name]: value,
+      }
+    }))
   }
 
-  setItemForm = (item) => {
+  mountEditForm = async (id) => {
+    const items = await readAllItems();
+    const item = items.find(el => el.id === parseInt(id));
     this.setState({
-      formData: {
-        name: item.name
+      itemForm: item
+    });
+  }
+
+  resetForm = () => {
+    this.setState({
+      itemForm: {
+        name: '',
+        description: '',
+        img_link: '',
+        quantity: ''
       }
     })
   }
 
-  // ====================================
-  // ============= Categories ===========
-  // ====================================
+  // -------------- AUTH ------------------
 
-  getCategories = async () => {
-    const categories = await readAllCategories();
-    this.setState({ categories })
+  handleLoginButton = () => {
+    this.props.history.push("/login")
   }
-
-  addCategoryToItem = async (item) => {
-    const newCategory = this.state.categories.find(category => category.name === this.state.selectedCategory);
-    const newItem = await addCategory(item.id, newCategory.id);
-    this.setState({
-      item: newItem
-    })
-  }
-
-
-  categoryForm = (e) => {
-    // debugger;
-    this.setState({
-      selectedCategory: e.target.value
-    })
-  }
-
-  // ====================================
-  // ============= Auth =================
-  // ====================================
 
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.authFormData);
-    this.setState({ currentUser })
+    this.setState({ currentUser });
   }
 
   handleRegister = async (e) => {
     e.preventDefault();
     const currentUser = await registerUser(this.state.authFormData);
-    this.setState({ currentUser })
+    this.setState({ currentUser });
   }
 
-  // =========================================================================================
-  handleVerify = async () => {
-    const currentUser = await verifyUser();
-    if (currentUser) {
-      this.setState({ currentUser })
-    }
-  }
-  // Function to logout user
-  // We delete the token from local storage
-  // set the current user in state back to null
-  // and call our remove token function to remove
-  // the auth headers from our api call
   handleLogout = () => {
-    localStorage.removeItem("jwt");
+    localStorage.removeItem("authToken");
+    removeToken();
     this.setState({
       currentUser: null
     })
-    removeToken();
   }
 
-  // Handle change function for the auth forms
   authHandleChange = (e) => {
     const { name, value } = e.target;
     this.setState(prevState => ({
@@ -180,63 +155,58 @@ class App extends Component {
     }));
   }
 
-  // ====================================
-  // ============= Render ===============
-  // ====================================
-
   render() {
     return (
-      <div>
-        <header>
-          <Link to="/"><h1>Welcome to Co4</h1></Link>
-          {/* Here we use a terinary to check if there is a logged in user set in state.
-              If there is no logged in user, we show a login button instead of the site nav */}
-          {this.state.currentUser
-            ?
-            <div>
-              {/* This is a greeting to the user if there user info has been set in state.
-              We use the guard operator to check '&&' */}
-              <h3>Hi {this.state.currentUser && this.state.currentUser.email}<button onClick={this.handleLogout}>logout</button></h3>
-              <Link to="/items">View All Items</Link>
-              &nbsp;
-              <Link to="/categories">View All Categories</Link>
-              <hr />
-            </div>
-            :
-            <button onClick={this.handleLoginButton}>Login/register</button>
-          }
-        </header>
-        {/* setting up our routes */}
-        <Route exact path="/login" render={(props) => (
+      <div className="App" >
+        <Header
+          handleLoginButton={this.handleLoginButton}
+          handleLogout={this.handleLogout}
+          currentUser={this.state.currentUser}
+        />
+        <Route exact path="/login" render={() => (
           <Login
             handleLogin={this.handleLogin}
             handleChange={this.authHandleChange}
             formData={this.state.authFormData} />)} />
-        <Route exact path="/register" render={(props) => (
+        <Route exact path="/register" render={() => (
           <Register
             handleRegister={this.handleRegister}
             handleChange={this.authHandleChange}
             formData={this.state.authFormData} />)} />
-        <Route exact path="/items" render={(props) => (
-          <ItemsIndex
-            items={this.state.item}
-            formData={this.state.formData}
-            getItemByID={this.getItemByID}
-            deleteItem={this.deleteItem}
-            handleSubmit={this.addItem}
-            handleChange={this.handleChange}
-            setItemForm={this.setItemForm}
-            updateItem={this.updateItem}
-          />)} />
-        <Route exact path="/categories" render={(props) => (
-          <CategoriesIndex categories={this.state.categories} />)} />
-        <Route exact path="/items/:id" render={(props) => (
-          <Item
-            item={this.state.item}
-            categories={this.state.categories}
-            selectedCategory={this.state.selectedCategory}
-            handleChange={this.categoryForm}
-            addCategoryToItem={this.addCategoryToItem} />)} />
+        <Route
+          exact path="/"
+          render={() => (
+            <ItemsView
+              currentUser={this.state.currentUser}
+              items={this.state.items}
+              itemForm={this.state.itemForm}
+              handleFormChange={this.handleFormChange}
+              newItem={this.newItem} />
+          )}
+        />
+        <Route
+          path="/new/item"
+          render={() => (
+            <CreateItem
+              handleFormChange={this.handleFormChange}
+              itemForm={this.state.itemForm}
+              newItem={this.newItem} />
+          )} />
+        <Route
+          path="/items/:id"
+          render={(props) => {
+            const { id } = props.match.params;
+            const item = this.state.items.find(el => el.id === parseInt(id));
+            return <ItemPage
+              id={id}
+              item={item}
+              handleFormChange={this.handleFormChange}
+              mountEditForm={this.mountEditForm}
+              editItem={this.editItem}
+              itemForm={this.state.itemForm}
+              deleteItem={this.deleteItem} />
+          }}
+        />
       </div>
     );
   }

@@ -31,7 +31,7 @@ function EditItem(props) {
         <input
           type="number"
           name="qty"
-          value={props.itemForm.description}
+          value={props.itemForm.quantity}
           onChange={props.handleFormChange} />
 
         <button>Submit</button>

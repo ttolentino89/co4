@@ -9,11 +9,11 @@ export default function Header(props) {
         {props.currentUser
           ?
           <>
-            <p>{props.currentUser.username}</p>
+            <p>Welcome, {props.currentUser.username}!</p>
             <button onClick={props.handleLogout}>logout</button>
           </>
           :
-          <button onClick={props.handleLoginButton}>Login/register</button>
+          <button onClick={props.handleLoginButton}>Login/Register</button>
         }
       </div>
     </header>
