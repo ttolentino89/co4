@@ -13,7 +13,7 @@ before_action :authorize_request, only: [:create, :update, :destroy, :add_catego
 
   # GET /items/1
   def show
-    # render json: @item, include :items
+    # render json: @item, include :categories
     render json: @item
   end
 
@@ -59,5 +59,6 @@ before_action :authorize_request, only: [:create, :update, :destroy, :add_catego
     # Only allow a trusted parameter "white list" through.
     def item_params
       params.require(:item).permit(:name, :description, :img_link, :quantity)
+      # params.require(:item).permit(:name)
     end
 end

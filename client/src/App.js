@@ -195,7 +195,7 @@ class App extends Component {
         <Route
           path="/items/:id"
           render={(props) => {
-            const { id } = props.match.params;
+            const {id} = props.match.params;
             const item = this.state.items.find(el => el.id === parseInt(id));
             return <ItemPage
               id={id}
