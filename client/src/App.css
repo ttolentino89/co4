@@ -15,12 +15,28 @@ h1 {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+a visited {
+  color: ##22D0C5;
+}
+
+Link {
+  text-decoration: none;
+  color: ##22D0C5;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
 header {
   font-family: 'Baloo Tammudu 2', cursive;
   text-align: left;
+  color: #fed300;
   /* padding: 2rem; */
   padding-left: 1rem;
-  background: linear-gradient(to right, #d6d6d6, #b1b1b1, #d6d6d6);
+  background: linear-gradient(to right, #fed300, #2d2b1f, #000000);
   position: fixed;
   width: 100%;
   top: 0;
@@ -38,9 +54,15 @@ header>div>button, p {
 }
 
 .auth-container {
+  display: flex;
+  align-self: flex-end;
+  background-color: black;
+  color: #fed300;
   margin: 8rem 36rem;
-  background: #b1b1b1;
-  padding: 2rem;
+  padding-right: 16rem;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
 }
 
 html {
@@ -55,13 +77,15 @@ html {
 }
 
 .item-card {
-  background: #d6d6d6;
+  background: #1c1a1a;
+  color: #fed300;
   cursor: pointer;
 }
 
 .item-page {
   margin: 8rem auto;
-  background: #d6d6d6;
+  background: #1c1a1a;
+  color: #fed300;
   width: 20rem;
   padding: 0rem 0rem 2rem 0rem;
 }
@@ -70,7 +94,8 @@ html {
   display: grid;
   width: 20rem;
   margin: 15rem auto;
-  background: #d6d6d6;
+  background: #1c1a1a;
+  color: #fed300;
   padding: 2rem 2rem 3.5rem 2rem;
 }
 

@@ -38,10 +38,10 @@ matches = Item.create!(
   categories: [basic, home, outdoor])
 
 mask = Item.create!(
-  name: "Dispoable Mask",
+  name: "Disposable Mask",
   description: "Priority for this item goes to medical workers",
   img_link: "https://images.pexels.com/photos/3902881/pexels-photo-3902881.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-  quantity: 268,
+  quantity: 26,
   categories: [med, wearable])
 
 lemonade = Item.create!(name: "Lemon Water",

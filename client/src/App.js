@@ -174,7 +174,7 @@ class App extends Component {
             handleChange={this.authHandleChange}
             formData={this.state.authFormData} />)} />
         <Route
-          exact path="/"
+          exact path="/items"
           render={() => (
             <ItemsView
               currentUser={this.state.currentUser}

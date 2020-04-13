@@ -31,9 +31,9 @@ function CreateItem(props) {
         <input
           type="number"
           name="qty"
-          value={props.itemForm.description}
+          value={props.itemForm.quantity}
           onChange={props.handleFormChange} />
-
+          <br /><br />
         <button>Submit</button>
       </form>
     </div>

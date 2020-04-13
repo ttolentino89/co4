@@ -27,11 +27,7 @@ function ItemsView(props) {
           props.history.push('/new/item');
           window.scrollTo(0, 0);
         }}>
-        <img
-          alt="Create a new item"
-          src="https://image.flaticon.com/icons/png/512/14/14980.png"
-          className="plus-sign" />
-        <h3>Create a new item</h3>
+        <h3>Create a New Item</h3>
       </div>
     </div>
   )
