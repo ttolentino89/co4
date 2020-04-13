@@ -5,7 +5,7 @@ function CreateItem(props) {
   return (
     <div className="create-form">
       <h3>Create a new item:</h3>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={props.newItem}>
         <p>Image Link:</p>
         <input
           type="text"

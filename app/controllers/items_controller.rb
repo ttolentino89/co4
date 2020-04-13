@@ -22,7 +22,8 @@ before_action :authorize_request, only: [:create, :update, :destroy, :add_catego
     @item = Item.new(item_params)
 
     if @item.save
-      render json: @item, status: :created, location: @item
+      render json: @item, status: :created
+      # location: @item
     else
       render json: @item.errors, status: :unprocessable_entity
     end
