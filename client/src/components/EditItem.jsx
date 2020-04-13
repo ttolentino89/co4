@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 
 function EditItem(props) {
+  console.log(props)
   return (
     <div className= "edit-form">
       <h3>Edit item</h3>

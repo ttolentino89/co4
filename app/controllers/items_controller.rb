@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :update, :destroy, :add_category]
+before_action :set_item, only: [:show, :update, :destroy, :add_category]
 before_action :authorize_request, only: [:create, :update, :destroy, :add_category]
 
   # GET /items
@@ -51,7 +51,9 @@ before_action :authorize_request, only: [:create, :update, :destroy, :add_catego
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
+      puts params[:id]
       @item = Item.find(params[:id])
+      puts 'here is', @item
     rescue ActiveRecord::RecordNotFound
       render json: { message: 'Sorry! Item not found.' }, status: 404
     end

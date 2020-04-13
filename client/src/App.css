@@ -25,9 +25,13 @@ a visited {
 
 Link {
   text-decoration: none;
-  color: ##22D0C5;
+  color: #22D0C5;
   padding-left: 5px;
   padding-right: 5px;
+}
+
+Link visited {
+  color: #22D0C5;
 }
 
 header {

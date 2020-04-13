@@ -18,6 +18,7 @@ class ItemsPage extends Component {
 
   render() {
     const { item } = this.props;
+    // console.log(this.props);
     return (
       <div className="item-page">
         {item === undefined ? <h2>Loading . . .</h2> : (
@@ -29,7 +30,7 @@ class ItemsPage extends Component {
                   handleFormChange={this.props.handleFormChange}
                   handleSubmit={(e) => {
                     e.preventDefault();
-                    this.props.editItem();
+                    this.props.editItem(this.props.itemForm.id);
                     this.setState({ isEdit: false })
                     this.props.history.push(`/items/${this.props.itemForm.id}`)
                   }}

@@ -1,6 +1,10 @@
 import axios from 'axios';
-const baseUrl = 'http://localhost:3000'
+// const baseUrl = 'http://localhost:3000'
 // const baseUrl = 'https://co4.herokuapp.com/'
+
+const baseUrl = process.env.NODE_ENV === 'production' ?
+'https://co4.herokuapp.com/'
+: 'http://localhost:3000'
 
 const api = axios.create({
   baseURL: baseUrl
@@ -53,7 +57,8 @@ export const createItem =  async (itemData) => {
   return resp.data;
 }
 
-export const updateItem =  async (itemData, id) => {
+export const updateItem =  async (id, itemData) => {
+  console.log(id, itemData, "hi")
   const resp = await api.put(`/items/${id}`, {item: itemData});
   return resp.data;
 }

@@ -74,6 +74,7 @@ class App extends Component {
 
   editItem = async (item) => {
     const { itemForm } = this.state
+    console.log(itemForm)
     const updatedItem = await updateItem(itemForm.id, itemForm);
     this.setState(prevState => (
       {
