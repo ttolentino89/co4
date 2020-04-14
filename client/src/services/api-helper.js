@@ -13,17 +13,17 @@ const api = axios.create({
 //=====Auth=====
 
 export const loginUser = async (loginData) => {
-  const resp = await api.post('/auth/login', { auth: loginData })
-  localStorage.setItem('authToken', resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-  return resp.data.user
+  const res = await api.post('/auth/login', { auth: loginData })
+  localStorage.setItem('authToken', res.data.token);
+  api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
+  return res.data.user
 }
 
 export const registerUser = async (registerData) => {
-  const resp = await api.post('/users/', { user: registerData })
-  localStorage.setItem('authToken', resp.data.token);
-  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`
-  return resp.data.user
+  const res = await api.post('/users/', { user: registerData })
+  localStorage.setItem('authToken', res.data.token);
+  api.defaults.headers.common.authorization = `Bearer ${res.data.token}`
+  return res.data.user
 }
 
 export const verifyUser = async () => {
@@ -44,39 +44,39 @@ export const removeToken = () => {
 //=====Items=====
 
 export const readAllItems =  async () => {
-  const resp = await api.get('/items');
-  return resp.data;
+  const res = await api.get('/items');
+  return res.data;
 }
 
 export const readItemByID =  async (id) => {
-  const resp = await api.get(`/items/${id}`);
-  return resp.data;
+  const res = await api.get(`/items/${id}`);
+  return res.data;
 }
 
 export const createItem =  async (itemData) => {
-  const resp = await api.post('/items/', {item: itemData});
-  return resp.data;
+  const res = await api.post('/items/', {item: itemData});
+  return res.data;
 }
 
 export const updateItem =  async (id, itemData) => {
   console.log(id, itemData, "hi")
-  const resp = await api.put(`/items/${id}`, {item: itemData});
-  return resp.data;
+  const res = await api.put(`/items/${id}`, {item: itemData});
+  return res.data;
 }
 
 export const destroyItem =  async (id) => {
-  const resp = await api.delete(`/items/${id}`);
-  return resp.data;
+  const res = await api.delete(`/items/${id}`);
+  return res.data;
 }
 
 //=====Categories=====
 
 export const readAllCategories = async () => {
-  const resp = await api.get('/categories');
-  return resp.data;
+  const res = await api.get('/categories');
+  return res.data;
 }
 
 export const addCategory = async (categoryId, id) => {
-  const resp = await api.get(`/categories/${categoryId}/items/${id}`);
-  return resp.data
+  const res = await api.get(`/categories/${categoryId}/items/${id}`);
+  return res.data
 }

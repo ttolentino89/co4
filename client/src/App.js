@@ -120,16 +120,16 @@ class App extends Component {
     });
   }
 
-  resetForm = () => {
-    this.setState({
-      itemForm: {
-        name: '',
-        description: '',
-        img_link: '',
-        quantity: ''
-      }
-    })
-  }
+  // resetForm = () => {
+  //   this.setState({
+  //     itemForm: {
+  //       name: '',
+  //       description: '',
+  //       img_link: '',
+  //       quantity: ''
+  //     }
+  //   })
+  // }
 
   // -------------- AUTH ------------------
 
