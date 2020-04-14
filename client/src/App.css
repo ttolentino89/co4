@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Tammudu+2&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Tammudu+2|Lobster&display=swap');
 
 body {
   text-align: center;
@@ -30,27 +30,27 @@ Link {
   padding-right: 5px;
 }
 
-Link visited {
-  color: #22D0C5;
+Link:active {
+  color: #FFFFFF;
 }
 
 header {
   font-family: 'Baloo Tammudu 2', cursive;
-  text-align: left;
+  text-align: right;
   color: #fed300;
   /* padding: 2rem; */
   padding-left: 1rem;
-  background: linear-gradient(to right, #fed300, #2d2b1f, #000000);
+  background: linear-gradient(to right, #fed300, #1c0e0d, #0f0505, #000000);
   position: fixed;
   width: 100%;
   top: 0;
   display: flex;
   justify-content: space-between;
+  align-content: center;
 }
 
-header>h1>a {
+header h1,a {
   text-decoration: none;
-  cursor: pointer;
 }
 
 header>div>button, p {
@@ -84,23 +84,37 @@ html {
 }
 
 .item-container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
   grid-gap: 10px;
-  margin: 8rem 10rem;
+  margin: 8rem 10rem; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: no-wrap;
+  padding-top: 8%;
 }
 
 .item-card {
   background: #1c1a1a;
   color: #fed300;
   cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  flex-shrink: 3;
+  text-align: center;
+}
+
+.item-card:hover {
+  background-color: #fed300;
+  color: black;
+  border: 3px solid black;
 }
 
 .item-page {
   margin: 8rem auto;
   background: #1c1a1a;
   color: #fed300;
-  width: 20rem;
   padding: 0rem 0rem 2rem 0rem;
 }
 
@@ -116,9 +130,4 @@ html {
 img {
   max-width: 15rem;
   padding: 2rem;
-}
-
-.plus-sign {
-  max-width: 4rem;
-  cursor: pointer;
 }

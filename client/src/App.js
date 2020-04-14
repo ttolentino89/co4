@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
+import Home from './components/Home'
 import ItemsView from './components/ItemsView'
 import ItemPage from './components/ItemPage'
 import CreateItem from './components/CreateItem'
@@ -104,6 +105,7 @@ class App extends Component {
 
   handleFormChange = (e) => {
     const { name, value } = e.target;
+    console.log(e.target);
     this.setState(prevState => ({
       itemForm: {
         ...prevState.itemForm,
@@ -174,6 +176,10 @@ class App extends Component {
           handleLogout={this.handleLogout}
           currentUser={this.state.currentUser}
         />
+        <Route exact path="/" render={() => (
+          <Home />
+        )} />
+        <Home />
         <Route exact path="/login" render={() => (
           <Login
             handleLogin={this.handleLogin}

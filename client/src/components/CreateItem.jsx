@@ -9,7 +9,7 @@ function CreateItem(props) {
         <p>Image Link:</p>
         <input
           type="text"
-          name="photo"
+          name="img_link"
           value={props.itemForm.img_link}
           onChange={props.handleFormChange} />
 
@@ -27,12 +27,13 @@ function CreateItem(props) {
           value={props.itemForm.description}
           onChange={props.handleFormChange} />
 
-        <p>Item Quantity:</p>
-        <input
-          type="number"
-          name="qty"
-          value={props.itemForm.quantity}
-          onChange={props.handleFormChange} />
+          <p>Item Quantity:</p>
+          <input
+            type="text"
+            name="quantity"
+            value={props.itemForm.quantity}
+            onChange={props.handleFormChange} />
+
           <br /><br />
         <button>Submit</button>
       </form>
