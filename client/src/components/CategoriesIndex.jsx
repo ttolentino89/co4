@@ -3,10 +3,10 @@ import React from 'react';
 // Simple functional component to show categories
 const CategoriesIndex = (props) => {
 return (
-  <div>
+  <div className="categories-container">
     {props.categories.map(category => (
       <div key={category.id}>
-        <p>{category.name}</p>
+        <h1>{category.name}</h1>
       </div>
     ))}
   </div>

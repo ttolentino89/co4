@@ -32,7 +32,6 @@ class Item extends Component {
                   ))}
                 </select>
                 <button onClick={() =>{
-                  // addFlavorToFood takes the current food item and form data from app.js state to send to the API
                   this.props.addCategoryToItem(this.props.item)
                 }}>Submit</button>
               </div>

@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
-import ItemsView from './components/ItemsView';
-import ItemPage from './components/ItemPage';
+import ItemsView from './components/ItemsView'
+import ItemPage from './components/ItemPage'
 import CreateItem from './components/CreateItem'
 import Login from './components/Login'
 import Register from './components/Register'
+import CategoriesIndex from './components/CategoriesIndex'
 
 import {
   createItem,
   readAllItems,
   updateItem,
   destroyItem,
+  readAllCategories,
   loginUser,
   registerUser,
   verifyUser,
@@ -48,6 +50,7 @@ class App extends Component {
     if (currentUser) {
       this.setState({ currentUser })
       this.getItems();
+      this.getCategories();
     }
   }
 
@@ -55,6 +58,13 @@ class App extends Component {
     const items = await readAllItems();
     this.setState({
       items
+    })
+  }
+
+  getCategories = async () => {
+    const categories = await readAllCategories();
+    this.setState({
+      categories
     })
   }
 
@@ -208,6 +218,8 @@ class App extends Component {
               deleteItem={this.deleteItem} />
           }}
         />
+        <Route exact path="/categories" render={(props) => (
+          <CategoriesIndex categories={this.state.categories} />)} />
       </div>
     );
   }

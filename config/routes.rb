@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :items
   put '/categories/:category_id/items/:id', to: 'items#add_category'
-  get '/categories/', to: 'categories#index'
+  get '/categories', to: 'categories#index'
   get '/categories/:id', to: 'categories#show'
 
 #auth
