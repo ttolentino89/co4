@@ -5,36 +5,38 @@ function EditItem(props) {
   console.log(props)
   return (
     <div className= "edit-form">
-      <h3>Edit item</h3>
+      <h1>Editing: {props.itemForm.name}</h1>
       <form onSubmit={props.handleSubmit}>
         <p>Image Link:</p>
+        &nbsp;
         <input
           type="text"
-          name="photo"
+          name="img_link"
           value={props.itemForm.img_link}
           onChange={props.handleFormChange} />
 
-        <p>Item name:</p>
+        <p>Name:</p>
         <input
           type="text"
           name="name"
           value={props.itemForm.name}
           onChange={props.handleFormChange} />
 
-        <p>Item Description:</p>
+        <p>Description:</p>
         <input
           type="text"
           name="description"
           value={props.itemForm.description}
           onChange={props.handleFormChange} />
 
-        <p>Item Quantity:</p>
-        <input
-          type="number"
-          name="qty"
-          value={props.itemForm.quantity}
-          onChange={props.handleFormChange} />
+          <p>Quantity:</p>
+          <input
+            type="text"
+            name="quantity"
+            value={props.itemForm.quantity}
+            onChange={props.handleFormChange} />
 
+          <br /><br />
         <button>Submit</button>
       </form>
     </div>

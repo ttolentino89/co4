@@ -1,10 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function CreateItem(props) {
   return (
     <div className="create-form">
-      <h3>Create a new item:</h3>
+      <h1>Create a new item:</h1>
       <form onSubmit={props.newItem}>
         <p>Image Link:</p>
         <input

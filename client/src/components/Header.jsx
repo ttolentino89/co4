@@ -16,7 +16,7 @@ export default function Header(props) {
 &nbsp;
 <Link to="/categories">  View All Categories  </Link>
 
-            <button onClick={props.handleLogout}>logout</button>
+            <button onClick={props.handleLogout}>Logout</button>
           </>
           :
           <button onClick={props.handleLoginButton}>Login/Register</button>

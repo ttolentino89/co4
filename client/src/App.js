@@ -3,6 +3,8 @@ import { Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 
 import Home from './components/Home'
+import Header from './components/Header'
+import Footer from './components/Footer'
 import ItemsView from './components/ItemsView'
 import ItemPage from './components/ItemPage'
 import CreateItem from './components/CreateItem'
@@ -23,7 +25,6 @@ import {
 } from './services/api-helper'
 
 import './App.css';
-import Header from './components/Header';
 
 class App extends Component {
   constructor(props) {
@@ -142,6 +143,7 @@ class App extends Component {
   handleLogin = async () => {
     const currentUser = await loginUser(this.state.authFormData);
     this.setState({ currentUser });
+    console.log(currentUser);
   }
 
   handleRegister = async (e) => {
@@ -151,7 +153,7 @@ class App extends Component {
   }
 
   handleLogout = () => {
-    localStorage.removeItem("authToken");
+    // localStorage.removeItem("authToken");
     removeToken();
     this.setState({
       currentUser: null
@@ -226,6 +228,7 @@ class App extends Component {
         />
         <Route exact path="/categories" render={(props) => (
           <CategoriesIndex categories={this.state.categories} />)} />
+        <Footer />
       </div>
     );
   }

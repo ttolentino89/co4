@@ -39,8 +39,8 @@ class ItemsPage extends Component {
               :
               <>
                 <h1>{item.name}</h1>
-                <br />
                 <p>{item.description}</p>
+                &nbsp;
                 <p>Qty: {item.quantity}</p>
                 <br />
                 <button onClick={() => {
@@ -49,6 +49,7 @@ class ItemsPage extends Component {
                   })
                   this.props.history.push(`/items/${item.id}/edit`)
                 }}>Edit</button>
+                &nbsp; &nbsp;
                 <button onClick={() => {
                   this.props.deleteItem(item.id);
                   this.props.history.push('/')
