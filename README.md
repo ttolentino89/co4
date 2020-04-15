@@ -65,3 +65,8 @@ I sincerely hope that Co4 doesn't have to become a reality, and that things begi
 Link to deployed site:
 http://co4.surge.sh/
 
+To run locally:
+- 'rails s' in root directory(co4)
+- open new terminal window, cd into 'client'
+- npm start
+- enter 'y' to run on different port
