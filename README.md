@@ -23,15 +23,29 @@ Planned React components (in no particular order):
 
 Schemas (currently written in SQL, will migrate to Postgres/Rails during development):
 
-<img width="440" alt="Screen Shot 2020-04-05 at 4 17 37 PM" src="https://user-images.githubusercontent.com/27389714/78509054-41ebf980-7759-11ea-914d-63a737526cf3.png">
+<img width="443" alt="Screen Shot 2020-04-15 at 9 26 07 AM" src="https://user-images.githubusercontent.com/27389714/79342782-8d419d00-7efb-11ea-87f6-849c8c7a4691.png">
 
 Current prelimary ERD (powered by sqlDBM):
 
-<img width="459" alt="Screen Shot 2020-04-05 at 4 41 05 PM" src="https://user-images.githubusercontent.com/27389714/78509495-4c5bc280-775c-11ea-9b84-5f8b943b4601.png">
+<img width="501" alt="Screen Shot 2020-04-15 at 9 46 37 AM" src="https://user-images.githubusercontent.com/27389714/79345637-5d949400-7eff-11ea-9eb7-d8ebd114af21.png">
 
 Wirefames:
 
 Layouts for desktop, tablet and mobile views can be seen in the co4_wireframes.pdf uploaded to this repo. You can also view wireframes online at this link [here.](https://github.com/ttolentino89/covid-corona-community-coalition/blob/master/co4_wireframes.pdf)
+
+# Imported Dependencies + Code Snippet:
+
+The third-party components I added to this project are mostly for styling + decorative elements rather than anything else, notably
+- Bulma
+- React Popup
+- SASS
+- PropTypes
+
+I was actually really happy with how things worked out using React Popup, since I was having a bit of an issue creating a custom "Success!" message/alert type modal that lets the user know that their item was successfully created (otherwise the user literally has no way of know their submit went through.) React Popup was able to solve this issue in 3 lines of code and minimal CSS styling after attempting to do this on my own for a whole weekend and failing.  For that reason, I'm choosing React Popup as my code snippet and highly recommend it to anyone else building projects with React!
+
+<img width="452" alt="Screen Shot 2020-04-15 at 9 48 17 AM" src="https://user-images.githubusercontent.com/27389714/79345678-6b4a1980-7eff-11ea-88a2-1c273404cc04.png">
+<img width="788" alt="Screen Shot 2020-04-15 at 9 49 26 AM" src="https://user-images.githubusercontent.com/27389714/79345715-769d4500-7eff-11ea-9ecb-d0eda1a9afa8.png">
+
 
 # Post-MVP Goals:
 
