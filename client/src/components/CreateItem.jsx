@@ -1,6 +1,6 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import Popup from "reactjs-popup";
 
 function CreateItem(props) {
   return (
@@ -36,7 +36,9 @@ function CreateItem(props) {
             onChange={props.handleFormChange} />
 
           <br /><br />
-        <button>Submit</button>
+        <Popup trigger={<button>Submit</button>}position="right center">
+        <Link to="/items"><div className="success">Item Created! Click here to go back.</div></Link>
+        </Popup>
       </form>
     </div>
   )
