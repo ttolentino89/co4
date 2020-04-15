@@ -21,14 +21,6 @@ function ItemsView(props) {
           <br />
         </div>
       ))}
-      <div
-        className="item-card"
-        onClick={() => {
-          props.history.push('/new/item');
-          window.scrollTo(0, 0);
-        }}>
-        <h3>Create a New Item</h3>
-      </div>
     </div>
   )
 }

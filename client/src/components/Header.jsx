@@ -12,10 +12,11 @@ export default function Header(props) {
             <p>Welcome, {props.currentUser.username}!</p>
             <Link to="/items">  View All Items  </Link>
 &nbsp;
+<Link to="/new/item"> Add Item </Link>
+&nbsp;
 <Link to="/categories">  View All Categories  </Link>
-<Link to="/cities">  View All Cities  </Link>
 
-            <button onClick={props.handleLogout}>logout</button>
+            <button onClick={props.handleLogout}>Logout</button>
           </>
           :
           <button onClick={props.handleLoginButton}>Login/Register</button>
