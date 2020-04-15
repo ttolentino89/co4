@@ -62,3 +62,6 @@ I was actually really happy with how things worked out using React Popup, since 
 
 I sincerely hope that Co4 doesn't have to become a reality, and that things begin to recover soon. However, aside from the name being event-specific (and easily changeable), the concept of a hyper-local, password-protected trade & barter-based  resource sharing application could certainly be applicable during other natural disasters and catastrophic situations. Anything that helps the right people to get the supplies they need more quickly and efficiently is a positive thing. For that reason, I'm leaving this project open source and encourage others to participate!
 
+Link to deployed site:
+http://co4.surge.sh/
+
